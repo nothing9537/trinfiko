@@ -7,10 +7,12 @@ declare module 'styled-components' {
         white100: string,
         white70: string,
         white50: string,
+        white10: string,
         // hover: string,
         // active: string,
       }
       darkBlue: string,
+      blue: string,
     },
     fonts: {
       MullerBold90: string,
@@ -23,6 +25,10 @@ declare module 'styled-components' {
       MullerBold42: string,
       MullerRegular16: string,
       MullerSuperBold18: string,
+      MullerBold12: string,
+    },
+    gradients: {
+      default: string;
     }
   }
 }

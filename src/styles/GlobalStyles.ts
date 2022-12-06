@@ -11,7 +11,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
 	html {
-    font-size: 10px;
+    font-size: 1vh;
     font-family: 'Muller', sans-serif;
     overflow-x: hidden;
     scroll-behavior: smooth;
@@ -22,6 +22,10 @@ export const GlobalStyles = createGlobalStyle`
     outline: none;
     cursor: pointer;
   }
+
+	ul {
+		list-style: none;
+	}
 
 	img, svg {
 		user-select: none;
@@ -41,6 +45,8 @@ export const GlobalStyles = createGlobalStyle`
 		height: 100vh;
 		overflow-x: hidden;
 		background-image: url('/static/images/bg/bg.png');
+		background-repeat: no-repeat;
+		background-size: cover;
 		position: relative;
 	}
 
@@ -57,12 +63,12 @@ export const GlobalStyles = createGlobalStyle`
 		overflow-x: hidden;
 		scrollbar-width: thin;
 		&::-webkit-scrollbar {
-			width: .3rem;
+			width: 1rem;
 			border: .1rem solid transparent;
 		}
 		&::-webkit-scrollbar-thumb {
-			/* background: !important; */
-			border-radius: .5rem !important;
+			background: ${props => props.theme.colors.darkBlue} !important;
+			/* border-radius: .5rem !important; */
 		}
 	}
 `

@@ -59,4 +59,10 @@ export const fonts = {
 		font-size: 1.8rem;
 		line-height: 2.8rem;
 	`,
+	MullerBold12: `
+		font-style: normal;
+		font-weight: 700;
+		font-size: 12px;
+		line-height: 20px;
+	`
 }
