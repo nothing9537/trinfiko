@@ -1,10 +1,11 @@
 import VacansyCard from 'components/Cards/VacansyCard'
 import Button from 'components/UI/Button'
-import React, { useRef } from 'react'
+import React, { useState } from 'react'
 import Header from './Header'
-import { Container, Item, Items, TextWrapper, VacansyWrapper, Wrapper } from './Styles'
-import { Swiper, SwiperSlide } from 'swiper/react'
+import { Container, Item, Items, NavigationButton, PaginationItem, PaginationWrapper, Tabs, TextWrapper, VacansyWrapper, Wrapper } from './Styles'
+import { Swiper, SwiperSlide, useSwiper } from 'swiper/react'
 import { Pagination } from 'swiper'
+import { Icons } from 'assets/icons'
 
 export default function Vacansy() {
 
@@ -17,7 +18,9 @@ export default function Vacansy() {
 		'Front-end developer'
 	]
 
-	const pagination = useRef(null)
+	const swiper = useSwiper()
+
+	const [currentSlide, setCurrentSlide] = useState(1)
 
 	return (
 		<Wrapper id='vacansy-section'>
@@ -44,11 +47,13 @@ export default function Vacansy() {
 				</TextWrapper>
 				<VacansyWrapper>
 					<Swiper
+						onActiveIndexChange={(swiper) => setCurrentSlide(swiper.activeIndex - 2)}
 						direction='vertical'
 						slidesPerView={3}
 						spaceBetween={30}
 						pagination={{
-							el: ''
+							type: 'fraction',
+							el: '.pag'
 						}}
 						modules={[Pagination]}
 						className='news-swiper'
@@ -59,7 +64,16 @@ export default function Vacansy() {
 								<VacansyCard job={item} />
 							</SwiperSlide>
 						)}
+						<NavigationButton onClick={() => swiper.slideNext()}>
+							<Icons.ArrowLeft />
+						</NavigationButton>
 					</Swiper>
+					<PaginationWrapper>
+						<Tabs className='pag' />
+						{items.map((_, index) =>
+							<PaginationItem className={currentSlide === index + 1 ? 'active' : ''} />
+						)}
+					</PaginationWrapper>
 				</VacansyWrapper>
 			</Container>
 		</Wrapper>
