@@ -18,7 +18,7 @@ export const NavigationButtonWrapper = styled.div`
 	gap: 2rem;
 `
 
-export const NavigationButton = styled.button`
+export const NavigationButton = styled.button<React.HTMLAttributes<HTMLButtonElement>>`
 	border-radius: 50%;
 	background: transparent;
 	width: 6.5rem;

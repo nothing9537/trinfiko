@@ -1,7 +1,9 @@
 import ProjectCard from 'components/Cards/ProjectCard'
-import React from 'react'
+import React, { useState } from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react'
 import Header from './Header'
-import { ProjectsWrapper, Wrapper } from './Styles'
+import { Item, ProgressBar, ProjectsWrapper, Wrapper } from './Styles'
+import { Pagination } from 'swiper'
 
 export default function Projects() {
 
@@ -38,17 +40,39 @@ export default function Projects() {
 		},
 	]
 
+	const [currentSlide, setCurrentSlide] = useState(1)
+
 	return (
 		<Wrapper id='projects-section'>
-			<Header />
-			<ProjectsWrapper className='customScroll'>
-				{items.map((item, index) =>
-					<ProjectCard
-						title={item.title}
-						subtitle={item.subTitle}
-						description={item.description}
-					/>
-				)}
+			<ProjectsWrapper>
+				<Swiper
+					onActiveIndexChange={(swiper) => setCurrentSlide(swiper.activeIndex - 2)}
+					slidesPerView={3}
+					spaceBetween={50}
+					modules={[Pagination]}
+					loop={true}
+					className="mySwiper"
+					pagination={{
+						type: 'fraction',
+					}}
+				>
+					<Header />
+					{items.map((item, index) =>
+						<SwiperSlide key={index}>
+							<ProjectCard
+								key={index}
+								title={item.title}
+								subtitle={item.subTitle}
+								description={item.description}
+							/>
+						</SwiperSlide>
+					)}
+				</Swiper>
+				<ProgressBar>
+					{items.map((_, index) =>
+						<Item className={currentSlide === index + 1 ? 'active' : ''} />
+					)}
+				</ProgressBar>
 			</ProjectsWrapper>
 		</Wrapper>
 	)

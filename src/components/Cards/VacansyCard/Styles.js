@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
 	max-width: 47rem;
+	cursor: pointer;
 	width: 100%;
 	background: ${props => props.theme.colors.white.white100};
 	border-radius: 1.5rem;
@@ -10,8 +11,8 @@ export const Container = styled.div`
 
 export const Job = styled.p`
 	color: ${props => props.theme.colors.darkBlue};
-	font-weight: 400;
-	font-size: 0.83vw;
-	line-height: 155%;
+	font-weight: 700;
+	font-size: 1.25vw;
+	line-height: 133%;
 	text-decoration-line: underline;
 `

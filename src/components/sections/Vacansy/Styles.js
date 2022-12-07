@@ -41,5 +41,7 @@ export const VacansyWrapper = styled.div`
 	width: 100%;
 	max-height: 40rem;
 	height: 100%;
-	overflow-y: scroll;
+	.news-swiper {
+		margin: 0;
+	}
 `

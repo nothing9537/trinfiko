@@ -1,10 +1,24 @@
 import VacansyCard from 'components/Cards/VacansyCard'
 import Button from 'components/UI/Button'
-import React from 'react'
+import React, { useRef } from 'react'
 import Header from './Header'
 import { Container, Item, Items, TextWrapper, VacansyWrapper, Wrapper } from './Styles'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Pagination } from 'swiper'
 
 export default function Vacansy() {
+
+	const items = [
+		'Front-end developer',
+		'Back-end developer',
+		'Android developer',
+		'Developer',
+		'Lead Software Engineer',
+		'Front-end developer'
+	]
+
+	const pagination = useRef(null)
+
 	return (
 		<Wrapper id='vacansy-section'>
 			<Header />
@@ -28,13 +42,24 @@ export default function Vacansy() {
 						Присоединиться к команде
 					</Button>
 				</TextWrapper>
-				<VacansyWrapper className='customScroll'>
-					<VacansyCard job='Front-end developer' />
-					<VacansyCard job='Back-end developer' />
-					<VacansyCard job='Android developer' />
-					<VacansyCard job='Developer' />
-					<VacansyCard job='Lead Software Engineer' />
-					<VacansyCard job='Front-end developer' />
+				<VacansyWrapper>
+					<Swiper
+						direction='vertical'
+						slidesPerView={3}
+						spaceBetween={30}
+						pagination={{
+							el: ''
+						}}
+						modules={[Pagination]}
+						className='news-swiper'
+						loop={true}
+					>
+						{items.map((item, index) =>
+							<SwiperSlide key={index}>
+								<VacansyCard job={item} />
+							</SwiperSlide>
+						)}
+					</Swiper>
 				</VacansyWrapper>
 			</Container>
 		</Wrapper>

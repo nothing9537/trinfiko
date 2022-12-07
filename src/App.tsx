@@ -9,6 +9,8 @@ import About from 'components/sections/About'
 import Projects from 'components/sections/Projects'
 import Vacansy from 'components/sections/Vacansy'
 import News from 'components/sections/News'
+import "swiper/css"
+import "swiper/css/pagination";
 
 export default function App() {
   return (
