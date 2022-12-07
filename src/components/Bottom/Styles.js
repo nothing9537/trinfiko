@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.footer`
-	max-width: 156rem;
+	max-width: ${props => props.theme.consts.layoutWidth};
 	width: 100%;
 	z-index: 3;
 	position: fixed;

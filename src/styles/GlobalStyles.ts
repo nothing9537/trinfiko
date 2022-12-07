@@ -10,8 +10,9 @@ export const GlobalStyles = createGlobalStyle`
 		/* color: white; */
   }
 
-	html {
-    font-size: 1vh;
+	html, body {
+    /* font-size: 1vh; */
+		font-size: 10px;
     font-family: 'Muller', sans-serif;
     overflow-x: hidden;
     scroll-behavior: smooth;
@@ -48,6 +49,7 @@ export const GlobalStyles = createGlobalStyle`
 		background-repeat: no-repeat;
 		background-size: cover;
 		position: relative;
+		scroll-behavior: smooth;
 	}
 
 	.hideScroll {
@@ -62,6 +64,13 @@ export const GlobalStyles = createGlobalStyle`
 		overflow-y: auto;
 		overflow-x: hidden;
 		scrollbar-width: thin;
+
+		&::-webkit-scrollbar-track {
+			/* box-shadow: inset 0 0 5px grey;  */
+			/* border-radius: 10px; */
+			background: #fff;
+		}
+
 		&::-webkit-scrollbar {
 			width: 1rem;
 			border: .1rem solid transparent;

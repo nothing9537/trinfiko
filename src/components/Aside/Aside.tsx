@@ -4,12 +4,12 @@ import { Container, Item, Nav } from './Styles'
 export default function Aside() {
 
 	const items = [
-		{ label: 'Главная', endpoint: '' },
-		{ label: 'О нас', endpoint: '' },
-		{ label: 'Проекты', endpoint: '' },
-		{ label: 'Вакансии', endpoint: '' },
-		{ label: 'Новости', endpoint: '' },
-		{ label: 'Контакты', endpoint: '' },
+		{ label: 'Главная', endpoint: '#main-section' },
+		{ label: 'О нас', endpoint: '#about-section' },
+		{ label: 'Проекты', endpoint: '#projects-section' },
+		{ label: 'Вакансии', endpoint: '#vacansy-section' },
+		{ label: 'Новости', endpoint: '#news-section' },
+		{ label: 'Контакты', endpoint: '#contact-section' },
 	]
 
 	return (

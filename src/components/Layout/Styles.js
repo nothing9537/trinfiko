@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.main`
-	max-width: 156rem;
+	max-width: ${props => props.theme.consts.layoutWidth};
 	width: 100%;
 	left: 16%;
 	margin-top: 30rem;

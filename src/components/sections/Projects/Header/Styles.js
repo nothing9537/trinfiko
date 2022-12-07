@@ -26,7 +26,7 @@ export const NavigationButton = styled.button`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	border: .1rem solid rgba(255, 255, 255, .2);
+	border: .1rem solid ${props => props.theme.colors.white.white100};
 	svg {
 		path {
 			fill: ${props => props.theme.colors.white.white100};

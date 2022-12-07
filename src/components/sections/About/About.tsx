@@ -4,7 +4,7 @@ import { CardWrapper, Description, Text, Title, Wrapper } from './Styles'
 
 export default function About() {
 	return (
-		<Wrapper>
+		<Wrapper id='about-section'>
 			<Text>
 				<Title>
 					ТРИНФИКО

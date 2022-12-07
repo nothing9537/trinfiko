@@ -29,6 +29,10 @@ declare module 'styled-components' {
     },
     gradients: {
       default: string;
+    },
+    consts: {
+      layoutWidth: string,
+      marginLeft: string,
     }
   }
 }

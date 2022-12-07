@@ -2,16 +2,17 @@ import styled from "styled-components";
 
 export const Container = styled.div`
 	border-radius: 1.5rem;
-	height: fit-content;
+	height: 40rem;
 	padding: 4rem;
 	background: ${props => props.theme.colors.white.white100};
-	/* max-width: 48rem; */
-	/* width: 100%; */
 	min-width: 48rem;
 	display: flex;
 	flex-direction: column;
-	gap: 3rem;
+	gap: 2rem;
 	cursor: pointer;
+	&:hover {
+		opacity: .7;
+	}
 `
 
 export const Titles = styled.div`
@@ -20,7 +21,7 @@ export const Titles = styled.div`
 	gap: 1.5rem;
 `
 
-export const Title = styled.h5`
+export const Date = styled.h5`
 	background: ${props => props.theme.colors.darkBlue};
 	${props => props.theme.fonts.MullerBold12};
 	padding: .1rem .8rem;
@@ -28,7 +29,7 @@ export const Title = styled.h5`
 	color: ${props => props.theme.colors.white.white100};
 `
 
-export const Subtitle = styled.h3`
+export const Title = styled.h3`
 	color: ${props => props.theme.colors.darkBlue};
 	${props => props.theme.fonts.MullerBold24};
 	text-decoration-line: underline;
@@ -40,7 +41,7 @@ export const Description = styled.p`
 `
 
 export const Footer = styled.div`
-	margin-top: 11rem;
+	align-self: flex-end;
 	display: flex;
 	justify-content: flex-end;
 	svg {

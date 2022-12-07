@@ -7,6 +7,8 @@ import { GlobalStyles } from 'styles/GlobalStyles'
 import Layout from 'components/Layout/Layout'
 import About from 'components/sections/About'
 import Projects from 'components/sections/Projects'
+import Vacansy from 'components/sections/Vacansy'
+import News from 'components/sections/News'
 
 export default function App() {
   return (
@@ -18,6 +20,8 @@ export default function App() {
       <Layout>
         <About />
         <Projects />
+        <Vacansy />
+        <News />
       </Layout>
       <Bottom />
     </div>
