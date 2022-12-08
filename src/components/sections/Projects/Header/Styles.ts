@@ -21,8 +21,8 @@ export const NavigationButtonWrapper = styled.div`
 export const NavigationButton = styled.button`
 	border-radius: 50%;
 	background: transparent;
-	width: 6.5rem;
-	height: 6.5rem;
+	width: 6.2rem;
+	height: 6.2rem;
 	display: flex;
 	align-items: center;
 	justify-content: center;

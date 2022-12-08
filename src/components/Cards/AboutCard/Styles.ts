@@ -30,5 +30,6 @@ export const Description = styled.p`
 	width: 100%;
 	${props => props.theme.fonts.MullerRegular18}
 	color: ${props => props.theme.colors.darkBlue};
-
+	line-height: 144%;
+	font-weight: 500;
 `

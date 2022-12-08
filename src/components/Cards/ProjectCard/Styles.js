@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const Container = styled.div`
 	border-radius: 0.78vw;
-	min-height: 20.20vw;
+	max-height: 40rem;
+	height: 100%;
 	padding: 2.08vw 2.08vw 3.125vw 2.08vw;
 	background: ${props => props.theme.colors.white.white100};
 	max-width: 48rem;
@@ -36,10 +37,11 @@ export const Subtitle = styled.h3`
 export const Description = styled.p`
 	${props => props.theme.fonts.MullerRegular18};
 	color: ${props => props.theme.colors.darkBlue};
+	margin-bottom: 11rem;
+	font-weight: 500;
 `
 
 export const Footer = styled.div`
-	margin-top: 11rem;
 	display: flex;
 	justify-content: flex-end;
 	svg {

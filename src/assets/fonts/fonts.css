@@ -1,0 +1,65 @@
+@font-face {
+	font-family: 'Muller';
+	font-style: normal;
+	src: url('./MullerBlack.ttf');
+}
+
+@font-face {
+	font-family: 'Muller';
+	font-style: normal;
+	src: url('./MullerBold.ttf');
+	font-weight: 700;
+}
+
+@font-face {
+	font-family: 'Muller';
+	font-style: normal;
+	src: url('./MullerExtraBold.ttf');
+	font-weight: 800;
+}
+
+@font-face {
+	font-family: 'Muller';
+	font-style: normal;
+	src: url('./MullerHairline.ttf');
+}
+
+@font-face {
+	font-family: 'Muller';
+	font-style: normal;
+	src: url('./MullerHeavy.ttf');
+}
+
+@font-face {
+	font-family: 'Muller';
+	font-style: normal;
+	src: url('./MullerLight.ttf');
+	font-weight: lighter;
+}
+
+@font-face {
+	font-family: 'Muller';
+	font-style: normal;
+	src: url('./MullerMedium.ttf');
+	font-weight: 500;
+}
+
+@font-face {
+	font-family: 'Muller';
+	font-style: normal;
+	src: url('./MullerRegular.ttf');
+	font-weight: 400;
+}
+
+@font-face {
+	font-family: 'Muller';
+	font-style: normal;
+	src: url('./MullerThin.ttf');
+	font-weight: 300;
+}
+
+@font-face {
+	font-family: 'Muller';
+	font-style: normal;
+	src: url('./MullerUltraLight.ttf');
+}

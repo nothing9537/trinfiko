@@ -25,8 +25,8 @@ export const TextWrapper = styled.div`
 
 export const Items = styled.div`
 	display: grid;
-	grid-template-columns: repeat(2, minmax(10rem, 32.5rem));
-	gap: 5rem;
+	grid-template-columns: repeat(2, minmax(10rem, 34rem));
+	gap: 3rem;
 	transform: translate3d(0, 0, 0) !important;
 	position: relative;
 `
@@ -34,7 +34,7 @@ export const Items = styled.div`
 export const Item = styled.p`
 	${props => props.theme.fonts.MullerRegular18};
 	color: ${props => props.theme.colors.white.white100};
-	font-weight: 400;
+	font-weight: 500;
 	font-size: .83vw;
 	line-height: 155%;
 `

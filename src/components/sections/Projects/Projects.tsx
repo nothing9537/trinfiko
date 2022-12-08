@@ -1,44 +1,49 @@
 import ProjectCard from 'components/Cards/ProjectCard'
+import Header from './Header'
 import React, { useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import Header from './Header'
-import { Item, ProgressBar, ProjectsWrapper, Wrapper } from './Styles'
-import { Pagination } from 'swiper'
+import { Swiper as SwiperTypes } from 'swiper/types';
+import { ProjectsWrapper, Wrapper } from './Styles'
+import { Controller, Pagination } from 'swiper'
+import ProjectsModal from 'components/Modal/ProjectsModal'
+import SiteSupport from 'components/Modal/ProjectsModal/Content/SiteSupport'
+import XBRL from 'components/Modal/ProjectsModal/Content/XBRL'
+import Alef from 'components/Modal/ProjectsModal/Content/Alef'
+import Jupyter from 'components/Modal/ProjectsModal/Content/Jupyter'
+import PaginationBlock from 'components/PaginationBlock';
 
 export default function Projects() {
 
-	const items = [
+	const items: { title: string, subTitle: string, description: string, component: React.ReactElement }[] = [
 		{
 			title: 'Web-решения',
-			subTitle: 'Деловой центр «Юпитер» 1',
-			description: 'Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться.'
+			subTitle: 'Поддержка сайтов',
+			description: 'Занимайтесь бизнесом - о Вашем сайте позаботимся мы.',
+			component: <SiteSupport />
 		},
 		{
-			title: 'Web-решения',
-			subTitle: 'Деловой центр «Юпитер» 2',
-			description: 'Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться.'
+			title: 'Отчетность',
+			subTitle: 'XBRL',
+			description: 'Мы предлагаем комфортный способ улучшить процесс создания, распространения и использования данных в бизнес-отчетах.',
+			component: <XBRL />
 		},
 		{
-			title: 'Web-решения',
-			subTitle: 'Деловой центр «Юпитер» 3',
-			description: 'Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться.'
+			title: 'АЛЕФ',
+			subTitle: 'Автоматизация',
+			description: 'Алеф - система для автоматизации хозяйственной деятельности предприятий различных отраслей. ',
+			component: <Alef />
 		},
-		{
-			title: 'Web-решения',
-			subTitle: 'Деловой центр «Юпитер» 4',
-			description: 'Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться.'
-		},
-		{
-			title: 'Web-решения',
-			subTitle: 'Деловой центр «Юпитер» 4',
-			description: 'Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться.'
-		},
-		{
-			title: 'Web-решения',
-			subTitle: 'Деловой центр «Юпитер» 5',
-			description: 'Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться.'
-		},
+		// {
+		// 	title: 'Деловой центр «Юпитер»',
+		// 	subTitle: 'Web-решения',
+		// 	description: 'Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться.',
+		// 	component: <Jupyter />
+		// },
 	]
+
+	const [isActive, setActive] = useState(false)
+
+	const [controller, setController] = useState<SwiperTypes>()
 
 	const [currentSlide, setCurrentSlide] = useState(1)
 
@@ -46,19 +51,27 @@ export default function Projects() {
 		<Wrapper id='projects-section'>
 			<ProjectsWrapper>
 				<Swiper
+					onSwiper={setController}
 					onActiveIndexChange={(swiper) => setCurrentSlide(swiper.activeIndex - 2)}
 					slidesPerView={3}
-					spaceBetween={50}
-					modules={[Pagination]}
+					spaceBetween={35}
+					controller={{ control: controller }}
+					modules={[Pagination, Controller]}
 					loop={true}
 					className="mySwiper"
 					pagination={{
 						type: 'fraction',
+						el: '.projects-block-pagination'
 					}}
 				>
 					<Header />
 					{items.map((item, index) =>
-						<SwiperSlide key={index}>
+						<SwiperSlide
+							key={index}
+							onClick={() => {
+								setActive(true)
+							}}
+						>
 							<ProjectCard
 								key={index}
 								title={item.title}
@@ -68,12 +81,19 @@ export default function Projects() {
 						</SwiperSlide>
 					)}
 				</Swiper>
-				<ProgressBar>
-					{items.map((_, index) =>
-						<Item className={currentSlide === index + 1 ? 'active' : ''} />
-					)}
-				</ProgressBar>
+				<PaginationBlock
+					paginationClassName='projects-block-pagination'
+					items={items}
+					currentSlide={currentSlide}
+				/>
 			</ProjectsWrapper>
+			<ProjectsModal
+				controller={controller}
+				setController={setController}
+				items={items}
+				isActive={isActive}
+				setActive={setActive}
+			/>
 		</Wrapper>
 	)
 }

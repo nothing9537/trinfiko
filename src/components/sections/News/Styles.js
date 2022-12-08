@@ -4,6 +4,7 @@ export const Wrapper = styled.section`
 	display: flex;
 	flex-direction: column;
 	gap: 8rem;
+	position: relative;
 `
 
 export const NewsWrapper = styled.div`
@@ -11,6 +12,5 @@ export const NewsWrapper = styled.div`
 	padding-bottom: 2rem;
 	display: flex;
 	align-items: center;
-	gap: 3rem;
-	overflow-x: scroll;
+	position: relative;
 `

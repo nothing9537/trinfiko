@@ -35,6 +35,6 @@ export const SubTitle = styled.h2`
 	color: ${props => props.theme.colors.white.white100};
 	${props => props.theme.fonts.MullerBold90};
 	line-height: 114%;
-	font-weight: 400;
+	font-weight: 500;
 	font-size: 7.5rem;
 `

@@ -29,7 +29,10 @@ export const Title = styled.h1`
 	color: ${props => props.theme.colors.white.white100};
 `
 
-export const Description = styled.p`
+export const Description = styled.h2`
 	${props => props.theme.fonts.MullerRegular52};
 	color: ${props => props.theme.colors.white.white100};
+	font-weight: 500;
+	font-size: 3rem;
+	line-height: 162%;
 `

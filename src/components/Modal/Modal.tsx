@@ -7,12 +7,17 @@ interface Props {
   isActive: boolean;
   setActive: React.SetStateAction<any>;
   style?: any;
+  isContentChildren?: boolean;
 }
 
-export default function Modal({ children, isActive, setActive, style }: Props) {
+export default function Modal({ children, isActive, setActive, style, isContentChildren = true }: Props) {
 
-  const modalClasses = ["hideScroll"]
-  const modalContentClasses = ["customScroll"]
+  const modalClasses = [
+    // "hideScroll"
+  ]
+  const modalContentClasses = [
+    // "customScroll"
+  ]
 
   if (isActive) {
     modalClasses.push("active")
@@ -25,12 +30,13 @@ export default function Modal({ children, isActive, setActive, style }: Props) {
         className={modalClasses.join(" ")}
         onClick={() => setActive(false)}
       >
+        {!isContentChildren && children}
         <ModalContent
           style={style}
           className={modalContentClasses.join(" ")}
           onClick={(e) => e.stopPropagation()}
         >
-          {children}
+          {isContentChildren && children}
         </ModalContent>
       </StyledModal>
     </Portal>

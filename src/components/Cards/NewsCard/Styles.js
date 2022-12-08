@@ -5,7 +5,7 @@ export const Container = styled.div`
 	height: 40rem;
 	padding: 4rem;
 	background: ${props => props.theme.colors.white.white100};
-	min-width: 48rem;
+	min-width: 46rem;
 	display: flex;
 	flex-direction: column;
 	gap: 2rem;

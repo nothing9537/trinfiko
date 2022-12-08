@@ -11,6 +11,7 @@ import Vacansy from 'components/sections/Vacansy'
 import News from 'components/sections/News'
 import "swiper/css"
 import "swiper/css/pagination";
+import Contact from 'components/sections/Contact'
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
         <Projects />
         <Vacansy />
         <News />
+        <Contact />
       </Layout>
       <Bottom />
     </div>
