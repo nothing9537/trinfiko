@@ -1,13 +1,17 @@
 import { Icons } from 'assets/icons'
-import React from 'react'
+import { CloseProjectModalContext } from 'context/closeProjectModal'
+import React, { useContext } from 'react'
 import { Banner, Container, Header, ModalText, Text, Wrapper } from './Styles'
 
 export default function Alef() {
+
+	const { setActive } = useContext(CloseProjectModalContext)
+
 	return (
 		<Container>
 			<Header>
 				<Text>АЛЕФ</Text>
-				<Icons.Close />
+				<Icons.Close onClick={() => setActive(false)} />
 			</Header>
 			<Wrapper className='customScroll'>
 				<Banner>

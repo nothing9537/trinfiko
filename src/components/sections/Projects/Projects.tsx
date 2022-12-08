@@ -11,6 +11,7 @@ import XBRL from 'components/Modal/ProjectsModal/Content/XBRL'
 import Alef from 'components/Modal/ProjectsModal/Content/Alef'
 import Jupyter from 'components/Modal/ProjectsModal/Content/Jupyter'
 import PaginationBlock from 'components/PaginationBlock';
+import { CloseProjectModalContext } from 'context/closeProjectModal';
 
 export default function Projects() {
 
@@ -48,52 +49,54 @@ export default function Projects() {
 	const [currentSlide, setCurrentSlide] = useState(1)
 
 	return (
-		<Wrapper id='projects-section'>
-			<ProjectsWrapper>
-				<Swiper
-					onSwiper={setController}
-					onActiveIndexChange={(swiper) => setCurrentSlide(swiper.activeIndex - 2)}
-					slidesPerView={3}
-					spaceBetween={35}
-					controller={{ control: controller }}
-					modules={[Pagination, Controller]}
-					loop={true}
-					className="mySwiper"
-					pagination={{
-						type: 'fraction',
-						el: '.projects-block-pagination'
-					}}
-				>
-					<Header />
-					{items.map((item, index) =>
-						<SwiperSlide
-							key={index}
-							onClick={() => {
-								setActive(true)
-							}}
-						>
-							<ProjectCard
+		<CloseProjectModalContext.Provider value={{ isActive, setActive }}>
+			<Wrapper id='projects-section'>
+				<ProjectsWrapper>
+					<Swiper
+						onSwiper={setController}
+						onActiveIndexChange={(swiper) => setCurrentSlide(swiper.activeIndex - 2)}
+						slidesPerView={3}
+						spaceBetween={35}
+						controller={{ control: controller }}
+						modules={[Pagination, Controller]}
+						loop={true}
+						className="mySwiper"
+						pagination={{
+							type: 'fraction',
+							el: '.projects-block-pagination'
+						}}
+					>
+						<Header />
+						{items.map((item, index) =>
+							<SwiperSlide
 								key={index}
-								title={item.title}
-								subtitle={item.subTitle}
-								description={item.description}
-							/>
-						</SwiperSlide>
-					)}
-				</Swiper>
-				<PaginationBlock
-					paginationClassName='projects-block-pagination'
+								onClick={() => {
+									setActive(true)
+								}}
+							>
+								<ProjectCard
+									key={index}
+									title={item.title}
+									subtitle={item.subTitle}
+									description={item.description}
+								/>
+							</SwiperSlide>
+						)}
+					</Swiper>
+					<PaginationBlock
+						paginationClassName='projects-block-pagination'
+						items={items}
+						currentSlide={currentSlide}
+					/>
+				</ProjectsWrapper>
+				<ProjectsModal
+					controller={controller}
+					setController={setController}
 					items={items}
-					currentSlide={currentSlide}
+					isActive={isActive}
+					setActive={setActive}
 				/>
-			</ProjectsWrapper>
-			<ProjectsModal
-				controller={controller}
-				setController={setController}
-				items={items}
-				isActive={isActive}
-				setActive={setActive}
-			/>
-		</Wrapper>
+			</Wrapper>
+		</CloseProjectModalContext.Provider>
 	)
 }

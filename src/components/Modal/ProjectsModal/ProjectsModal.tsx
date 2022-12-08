@@ -40,7 +40,7 @@ export default function ProjectsModal({ isActive, setActive, items }: Props) {
 					slidesPerView={1}
 					modules={[Pagination, Controller]}
 					controller={{ control: controller }}
-					spaceBetween={350}
+					spaceBetween={400}
 					loop={true}
 					className="mySwiper"
 					pagination={{

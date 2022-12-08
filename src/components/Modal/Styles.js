@@ -13,7 +13,7 @@ export const StyledModal = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: .5s;
+    transition: .3s;
     pointer-events: none;
     &.active {
         z-index: 100;
@@ -25,10 +25,10 @@ export const StyledModal = styled.div`
 export const ModalContent = styled.div`
     z-index: 100;
     position: relative;
-    top: -10rem;
-    transition: .4s all;
+    top: -20rem;
+    transition: .3s all;
     &.active {
-        top: 10rem;
+        top: -5rem;
         z-index: 100;
         max-height: fit-content;
         /* overflow-y: scroll; */

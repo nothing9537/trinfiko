@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Container as NavButtonContainer } from 'components/NavigationButton/Styles'
 
 export const Wrapper = styled.section`
 	display: flex;
@@ -35,7 +36,7 @@ export const Item = styled.p`
 	${props => props.theme.fonts.MullerRegular18};
 	color: ${props => props.theme.colors.white.white100};
 	font-weight: 500;
-	font-size: .83vw;
+	font-size: 1.55rem;
 	line-height: 155%;
 `
 
@@ -52,6 +53,12 @@ export const VacansyWrapper = styled.div`
 		margin: 0;
 		transform: translate3d(0, 0, 0) !important;
 		position: relative;
+	}
+	${NavButtonContainer} {
+		position: absolute;
+		left: 35%;
+		bottom: -15rem;
+		transform: rotate(-90deg);
 	}
 `
 
@@ -84,25 +91,5 @@ export const PaginationItem = styled.button`
 	width: .2rem;
 	&.active {
 		background: white;
-	}
-`
-
-export const NavigationButton = styled.button`
-	border-radius: 50%;
-	background: transparent;
-	position: fixed;
-	z-index: 20;
-	bottom: -10rem;
-	right: 0;
-	width: 6.5rem;
-	height: 6.5rem;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	border: .1rem solid ${props => props.theme.colors.white.white100};
-	svg {
-		path {
-			fill: ${props => props.theme.colors.white.white100};
-		}
 	}
 `

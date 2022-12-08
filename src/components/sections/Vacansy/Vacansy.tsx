@@ -2,10 +2,12 @@ import VacansyCard from 'components/Cards/VacansyCard'
 import Button from 'components/UI/Button'
 import React, { useState } from 'react'
 import Header from './Header'
-import { Container, Item, Items, NavigationButton, PaginationItem, PaginationWrapper, Tabs, TextWrapper, VacansyWrapper, Wrapper } from './Styles'
-import { Swiper, SwiperSlide, useSwiper } from 'swiper/react'
-import { Pagination } from 'swiper'
+import { Container, Item, Items, PaginationItem, PaginationWrapper, Tabs, TextWrapper, VacansyWrapper, Wrapper } from './Styles'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Controller, Pagination, Swiper as SwiperTypes } from 'swiper'
 import { Icons } from 'assets/icons'
+import NavigationButton from 'components/NavigationButton'
+import VacansyModal from 'components/Modal/VacansyModal'
 
 export default function Vacansy() {
 
@@ -18,9 +20,9 @@ export default function Vacansy() {
 		'Front-end developer'
 	]
 
-	const swiper = useSwiper()
-
 	const [currentSlide, setCurrentSlide] = useState(1)
+	const [controller, setController] = useState<SwiperTypes>()
+	const [isModal, setModal] = useState(false)
 
 	return (
 		<Wrapper id='vacansy-section'>
@@ -41,12 +43,14 @@ export default function Vacansy() {
 							Наши специалисты регулярно проходят обучение в сертификационных центрах.
 						</Item>
 					</Items>
-					<Button height='6.6rem' padding='2.3rem 7rem'>
+					<Button height='6.6rem' padding='2.3rem 7rem' onClick={() => setModal(true)} variant='transparent'>
 						Присоединиться к команде
 					</Button>
 				</TextWrapper>
 				<VacansyWrapper>
 					<Swiper
+						onSwiper={setController}
+						controller={{ control: controller }}
 						onActiveIndexChange={(swiper) => setCurrentSlide(swiper.activeIndex - 2)}
 						direction='vertical'
 						slidesPerView={3}
@@ -55,7 +59,7 @@ export default function Vacansy() {
 							type: 'fraction',
 							el: '.pag'
 						}}
-						modules={[Pagination]}
+						modules={[Pagination, Controller]}
 						className='news-swiper'
 						loop={true}
 					>
@@ -64,18 +68,19 @@ export default function Vacansy() {
 								<VacansyCard job={item} />
 							</SwiperSlide>
 						)}
-						<NavigationButton onClick={() => swiper.slideNext()}>
-							<Icons.ArrowLeft />
-						</NavigationButton>
 					</Swiper>
 					<PaginationWrapper>
 						<Tabs className='pag' />
 						{items.map((_, index) =>
-							<PaginationItem className={currentSlide === index + 1 ? 'active' : ''} />
+							<PaginationItem key={index} className={currentSlide === index + 1 ? 'active' : ''} />
 						)}
 					</PaginationWrapper>
+					<NavigationButton onClick={() => controller?.slideNext()}>
+						<Icons.ArrowLeft />
+					</NavigationButton>
 				</VacansyWrapper>
 			</Container>
+			<VacansyModal isActive={isModal} setActive={setModal} />
 		</Wrapper>
 	)
 }

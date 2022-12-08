@@ -10,6 +10,7 @@ import Map from "./Map"
 import Nav from "./Nav"
 import NavLight from "./NavLight"
 import ArrowRight from "./ArrowRight"
+import Document from "./Document"
 
 export const Icons = {
 	Arrow,
@@ -23,5 +24,6 @@ export const Icons = {
 	Map,
 	Nav,
 	NavLight,
-	ArrowRight
+	ArrowRight,
+	Document
 }

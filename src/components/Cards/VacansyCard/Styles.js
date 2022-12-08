@@ -12,7 +12,7 @@ export const Container = styled.div`
 export const Job = styled.p`
 	color: ${props => props.theme.colors.darkBlue};
 	font-weight: 700;
-	font-size: 1.25vw;
+	font-size: 2.7rem;
 	line-height: 133%;
 	text-decoration-line: underline;
 `

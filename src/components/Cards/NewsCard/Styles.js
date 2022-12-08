@@ -2,10 +2,11 @@ import styled from "styled-components";
 
 export const Container = styled.div`
 	border-radius: 1.5rem;
-	height: 40rem;
+	height: fit-content;
 	padding: 4rem;
 	background: ${props => props.theme.colors.white.white100};
-	min-width: 46rem;
+	max-width: 46rem;
+	width: 100%;
 	display: flex;
 	flex-direction: column;
 	gap: 2rem;
@@ -38,6 +39,7 @@ export const Title = styled.h3`
 export const Description = styled.p`
 	${props => props.theme.fonts.MullerRegular18};
 	color: ${props => props.theme.colors.darkBlue};
+	font-weight: 500;
 `
 
 export const Footer = styled.div`
