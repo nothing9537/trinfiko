@@ -1,22 +1,21 @@
-import { Icons } from 'assets/icons';
 import NavigationButton from 'components/NavigationButton';
-import PaginationBlock from 'components/PaginationBlock';
 import React, { useState } from 'react'
-import { Controller, Pagination } from 'swiper';
+import Modal from '../Modal'
+import { Controller, Pagination, Swiper as SwiperTypes } from 'swiper'
+import { Container, Description, Header, Text, TitleDescription, Wrapper } from './Styles';
+import { Icons } from 'assets/icons';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Swiper as SwiperTypes } from 'swiper/types';
-import Modal from '../Modal';
-import { Container, Wrapper } from './Styles';
+import PaginationBlock from 'components/PaginationBlock';
+import Button from 'components/UI/Button';
 
 interface Props {
 	isActive: boolean;
 	setActive: React.SetStateAction<any>;
-	items: { title: string, subTitle: string, description: string, component: React.ReactElement }[];
-	setController?: React.SetStateAction<any>;
-	controller?: SwiperTypes
+	items: { title: string, description: string }[],
+	setVacansyModal: React.SetStateAction<any>
 }
 
-export default function ProjectsModal({ isActive, setActive, items }: Props) {
+export default function JobModal({ isActive, setActive, items, setVacansyModal }: Props) {
 
 	const [currentSlide, setCurrentSlide] = useState(1)
 
@@ -45,7 +44,7 @@ export default function ProjectsModal({ isActive, setActive, items }: Props) {
 					className="mySwiper"
 					pagination={{
 						type: 'fraction',
-						el: '.modal-projects-pagination'
+						el: '.vacansy-projects-pagination'
 					}}
 				>
 					{items.map((item, index) =>
@@ -53,7 +52,20 @@ export default function ProjectsModal({ isActive, setActive, items }: Props) {
 							key={index}
 						>
 							<Wrapper onClick={e => e.stopPropagation()}>
-								{item.component}
+								<Header>
+									<Text>{item.title}</Text>
+									<Icons.Close onClick={() => setActive(false)} />
+								</Header>
+								<TitleDescription>Описание вакансии</TitleDescription>
+								<Description>{item.description}</Description>
+								<Button
+									height='6.6rem'
+									variant='solid'
+									padding='2.3rem 4rem'
+									onClick={() => setVacansyModal(true)}
+								>
+									Присоединиться к команде
+								</Button>
 							</Wrapper>
 						</SwiperSlide>
 					)}
@@ -68,7 +80,7 @@ export default function ProjectsModal({ isActive, setActive, items }: Props) {
 					<Icons.ArrowRight />
 				</NavigationButton>
 				<PaginationBlock
-					paginationClassName='modal-projects-pagination'
+					paginationClassName='vacansy-projects-pagination'
 					items={items}
 					currentSlide={currentSlide}
 				/>

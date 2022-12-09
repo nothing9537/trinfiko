@@ -1,11 +1,12 @@
 import { Icons } from 'assets/icons';
 import Button from 'components/UI/Button';
+import Checkbox from 'components/UI/Checkbox';
 import Input from 'components/UI/Input';
 import Textarea from 'components/UI/Textarea';
 import React from 'react'
 import { useForm, Controller } from 'react-hook-form';
 import Modal from '../Modal'
-import { Body, Container, Header, LabelFile, Limit, Resume, ResumeRow, Row, Text } from './Styles';
+import { Body, Container, Header, LabelFile, Limit, Resume, ResumeRow, Row, SubmitRow, Text } from './Styles';
 
 interface Props {
 	isActive: boolean;
@@ -119,6 +120,13 @@ export default function VacansyModal({ isActive, setActive }: Props) {
 						</ResumeRow>
 						<Limit>не более 10 мб</Limit>
 					</Resume>
+					<hr />
+					<SubmitRow>
+						<Checkbox label={<div>Я даю согласие на обработку персональных данных согласно <a href="">политики конфиденциальности</a></div>} />
+						<Button height='6.6rem' variant='solid' padding='2rem 12rem'>
+							Отправить
+						</Button>
+					</SubmitRow>
 				</Body>
 			</Container>
 		</Modal>

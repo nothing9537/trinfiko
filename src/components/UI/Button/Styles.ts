@@ -26,6 +26,10 @@ export const ButtonBlock = styled.button<IButton>`
 	`}
 
 	${props => props.variant === 'solid' && css`
+		font-weight: 600;
 		background: ${props => props.theme.colors.darkBlue};
+		&:hover {
+			opacity: .7;
+		}
 	`}
 `

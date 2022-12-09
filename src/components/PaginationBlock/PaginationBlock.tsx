@@ -12,7 +12,7 @@ export default function PaginationBlock({ paginationClassName, items, currentSli
 		<ProgressBar>
 			<Pag className={paginationClassName}></Pag>
 			{items.map((_, index) =>
-				<Item className={currentSlide === index + 1 ? 'active' : ''} />
+				<Item key={index} className={currentSlide === index + 1 ? 'active' : ''} />
 			)}
 		</ProgressBar>
 	)

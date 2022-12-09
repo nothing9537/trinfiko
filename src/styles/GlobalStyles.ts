@@ -17,6 +17,10 @@ export const GlobalStyles = createGlobalStyle`
     font-family: 'Muller', sans-serif;
     overflow-x: hidden;
     scroll-behavior: smooth;
+
+		@media (min-width: 1921px) {
+			font-size: 1vh !important;
+		}
   }
 
   button {

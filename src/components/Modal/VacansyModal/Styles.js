@@ -4,7 +4,7 @@ export const Container = styled.div`
 	border-radius: .5rem;
 	background: ${props => props.theme.colors.white.white100};
 	width: 97rem;
-	height: 76rem;
+	height: fit-content;
 	padding: 6rem;
 	padding-top: 6rem;
 `
@@ -41,7 +41,10 @@ export const Text = styled.h4`
 export const Body = styled.form`
 	display: flex;
 	flex-direction: column;
-	/* gap: 3rem; */
+	hr {
+		height: 0;
+		border: .05rem solid #EEEEEE;
+	}
 `
 
 export const Resume = styled.div`
@@ -49,6 +52,7 @@ export const Resume = styled.div`
 	display: flex;
 	align-items: center;
 	gap: 5rem;
+	margin-bottom: 3rem;
 `
 
 export const ResumeRow = styled.label`
@@ -73,4 +77,15 @@ export const LabelFile = styled.label`
 	line-height: 2.8rem;
 	text-decoration-line: underline;
 	color: ${props => props.theme.colors.darkBlue};
+`
+
+export const SubmitRow = styled.div`
+	display: flex;
+	margin-top: 5rem;
+	align-items: center;
+	justify-content: space-between;
+	gap: 3rem;
+	a {
+		text-decoration-line: underline;
+	}
 `

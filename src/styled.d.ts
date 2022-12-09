@@ -33,6 +33,15 @@ declare module 'styled-components' {
     consts: {
       layoutWidth: string,
       marginLeft: string,
+    },
+    mediaQueries: {
+      mobile: string,
+      tablet: string,
+      computer: string,
+      desktop: string,
+      hdPlus: string,
+      wideScreen: string,
+      superWideScreen: string;
     }
   }
 }
